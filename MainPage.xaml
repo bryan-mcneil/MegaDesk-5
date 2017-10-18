@@ -8,7 +8,7 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="addBtn" Content="Add New Quote" HorizontalAlignment="Left" Margin="136,96,0,0" VerticalAlignment="Top" Height="62" Width="244"/>
+        <Button x:Name="addBtn" Content="Add New Quote" HorizontalAlignment="Left" Margin="136,96,0,0" VerticalAlignment="Top" Height="62" Width="244" Click="addBtn_Click"/>
         <Button x:Name="viewBtn" Content="View Quotes" HorizontalAlignment="Left" Margin="136,214,0,0" VerticalAlignment="Top" Height="64" Width="244"/>
         <Button x:Name="searchBtn" Content="Search Quote" HorizontalAlignment="Left" Margin="136,338,0,0" VerticalAlignment="Top" Height="64" Width="244"/>
         <Button x:Name="exitBtn" Content="Exit" HorizontalAlignment="Left" Margin="136,466,0,0" VerticalAlignment="Top" Height="64" Width="244"/>

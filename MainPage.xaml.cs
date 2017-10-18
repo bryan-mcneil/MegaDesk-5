@@ -25,6 +25,12 @@ namespace MegaDesk_5
         public MainPage()
         {
             this.InitializeComponent();
+
+        }
+
+        private void addBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(AddQuoteWindow));
         }
     }
 }
