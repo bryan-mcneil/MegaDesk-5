@@ -25,6 +25,7 @@ namespace MegaDesk_5
     public sealed partial class AddQuoteWindow : Page
     {
         private List<string> materials;
+        private bool validated;
         public AddQuoteWindow()
         {
             this.InitializeComponent();
@@ -122,7 +123,6 @@ namespace MegaDesk_5
         private void variableDepth_KeyUp(object sender, KeyRoutedEventArgs e)
         {
             int i = 0;
-
             if (variableDepth.Text != "")
             {
                 if (!int.TryParse(variableDepth.Text, out i))
@@ -131,10 +131,12 @@ namespace MegaDesk_5
                     messageDialog.ShowAsync();
                     variableDepth.Background = new SolidColorBrush(Windows.UI.Colors.Red);
                     variableDepth.Text = "";
+                    validated = false;
                 }
                 else
                 {
                     variableDepth.Background = new SolidColorBrush(Windows.UI.Colors.Transparent);
+                    validated = true;
                 }
             }
         }
@@ -148,6 +150,48 @@ namespace MegaDesk_5
                 if (!int.TryParse(variableWidth.Text, out i))
                 {
                     var messageDialog = new MessageDialog("Please enter a number");
+                    messageDialog.ShowAsync();
+                    variableWidth.Background = new SolidColorBrush(Windows.UI.Colors.Red);
+                    variableWidth.Text = "";
+                    validated = false;
+                }
+                else
+                {
+                    variableWidth.Background = new SolidColorBrush(Windows.UI.Colors.Transparent);
+                    validated = true;
+                }
+            }
+        }
+
+        private void variableDepth_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (validated)
+            {
+                int depth = 0;
+                depth = Convert.ToInt32(variableDepth.Text);
+                if (!(depth > 11 && depth < 49))
+                {
+                    var messageDialog = new MessageDialog("Please enter a number between 12 and 48");
+                    messageDialog.ShowAsync();
+                    variableDepth.Background = new SolidColorBrush(Windows.UI.Colors.Red);
+                    variableDepth.Text = "";
+                }
+                else
+                {
+                    variableDepth.Background = new SolidColorBrush(Windows.UI.Colors.Transparent);
+                }
+            }
+        }
+
+        private void variableWidth_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (validated)
+            {
+                int width = 0;
+                width = Convert.ToInt32(variableWidth.Text);
+                if (!(width > 23 && width < 97))
+                {
+                    var messageDialog = new MessageDialog("Please enter a number between 24 and 96");
                     messageDialog.ShowAsync();
                     variableWidth.Background = new SolidColorBrush(Windows.UI.Colors.Red);
                     variableWidth.Text = "";

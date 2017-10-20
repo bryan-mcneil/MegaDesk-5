@@ -28,12 +28,7 @@ namespace MegaDesk_5
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            CurrentDeskQuote = e.Parameter as DeskQuote;
-        }
-        public DisplayQuote()
-        {
-            this.InitializeComponent();
-
+            this.CurrentDeskQuote = e.Parameter as DeskQuote;
             FirstNameValue.Text = CurrentDeskQuote.FirstName;
             LastNameValue.Text = CurrentDeskQuote.LastName;
 
@@ -52,15 +47,21 @@ namespace MegaDesk_5
 
             DeskCost.Text = "$" + System.Convert.ToString(CurrentDeskQuote.DeskCost + CurrentDeskQuote.ShippingCost);
         }
+        public DisplayQuote()
+        {
+            this.InitializeComponent();
+        }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainPage));
         }
 
-        private void SaveQuit_Click(object sender, RoutedEventArgs e)
-        {
-            File.AppendAllText("quotes.json", JsonConvert.SerializeObject(CurrentDeskQuote) + "\r\n");
+        private async void SaveQuit_Click(object sender, RoutedEventArgs e)
+        {          
+            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            Windows.Storage.StorageFile quotes = await storageFolder.CreateFileAsync("quotes.json", Windows.Storage.CreationCollisionOption.OpenIfExists);
+            await Windows.Storage.FileIO.AppendTextAsync(quotes, JsonConvert.SerializeObject(CurrentDeskQuote) + "\r\n");
             Frame.Navigate(typeof(MainPage));
         }
     }

@@ -15,17 +15,17 @@
         <TextBlock HorizontalAlignment="Left" Margin="131,288,0,0" TextWrapping="Wrap" Text="Drawer Count:" VerticalAlignment="Top" Height="39" Width="160" RenderTransformOrigin="0.8,0.813" FontSize="24"/>
         <TextBlock HorizontalAlignment="Left" Margin="555,262,0,0" TextWrapping="Wrap" Text="Material:" VerticalAlignment="Top" Height="39" Width="95" RenderTransformOrigin="0.8,0.813" FontSize="24"/>
         <TextBlock HorizontalAlignment="Left" Margin="131,355,0,0" TextWrapping="Wrap" Text="Shipping Days:" VerticalAlignment="Top" Height="39" Width="160" RenderTransformOrigin="0.8,0.813" FontSize="24"/>
-        <TextBox x:Name="variableFirstName" HorizontalAlignment="Left" Margin="291,143,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="39" Width="180" RenderTransformOrigin="-0.101,-7.675" FontSize="24"/>
-        <TextBox x:Name="variableWidth" HorizontalAlignment="Left" Margin="291,215,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="39" Width="180" RenderTransformOrigin="-0.101,-7.675" FontSize="24" KeyUp="variableWidth_KeyUp"/>
-        <TextBox x:Name="variableLastName" HorizontalAlignment="Left" Margin="650,143,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="39" Width="180" RenderTransformOrigin="-0.101,-7.675" FontSize="24"/>
-        <TextBox x:Name="variableDepth" HorizontalAlignment="Left" Margin="650,205,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="39" Width="180" RenderTransformOrigin="-0.101,-7.675" KeyUp="variableDepth_KeyUp" FontSize="24"/>
-        <ComboBox x:Name="variableShipping" HorizontalAlignment="Left" Margin="291,355,0,0" VerticalAlignment="Top" Width="180" Height="39" FontSize="24">
+        <TextBox x:Name="variableFirstName" HorizontalAlignment="Left" Margin="291,143,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="39" Width="180" RenderTransformOrigin="-0.101,-7.675" FontSize="20"/>
+        <TextBox x:Name="variableWidth" HorizontalAlignment="Left" Margin="291,215,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="39" Width="180" RenderTransformOrigin="-0.101,-7.675" FontSize="20" KeyUp="variableWidth_KeyUp" LostFocus="variableWidth_LostFocus"/>
+        <TextBox x:Name="variableLastName" HorizontalAlignment="Left" Margin="650,143,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="39" Width="180" RenderTransformOrigin="-0.101,-7.675" FontSize="20"/>
+        <TextBox x:Name="variableDepth" HorizontalAlignment="Left" Margin="650,205,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="39" Width="180" RenderTransformOrigin="-0.101,-7.675" KeyUp="variableDepth_KeyUp" FontSize="20" LostFocus="variableDepth_LostFocus"/>
+        <ComboBox x:Name="variableShipping" HorizontalAlignment="Left" Margin="291,355,0,0" VerticalAlignment="Top" Width="180" Height="39" FontSize="20">
             <x:String>3</x:String>
             <x:String>5</x:String>
             <x:String>7</x:String>
             <x:String>14</x:String>
         </ComboBox>
-        <ComboBox x:Name="variableDrawer" HorizontalAlignment="Left" Margin="291,288,0,0" VerticalAlignment="Top" Width="180" Height="39" FontSize="24">
+        <ComboBox x:Name="variableDrawer" HorizontalAlignment="Left" Margin="291,288,0,0" VerticalAlignment="Top" Width="180" Height="39" FontSize="20">
             <x:String>0</x:String>
             <x:String>1</x:String>
             <x:String>2</x:String>
@@ -35,7 +35,7 @@
             <x:String>6</x:String>
             <x:String>7</x:String>
         </ComboBox>
-        <ComboBox x:Name="variableMaterial" HorizontalAlignment="Left" Margin="650,262,0,0" VerticalAlignment="Top" Height="39" Width="180" FontSize="24"/>
+        <ComboBox x:Name="variableMaterial" HorizontalAlignment="Left" Margin="650,262,0,0" VerticalAlignment="Top" Height="39" Width="180" FontSize="20"/>
         <Button x:Name="addQuoteBtn" Content="Submit" HorizontalAlignment="Left" Margin="574,492,0,0" VerticalAlignment="Top" Height="49" Width="166" Click="addQuoteBtn_Click" FontSize="16"/>
         <Button x:Name="cancelBtn" Content="Cancel" HorizontalAlignment="Left" Margin="291,492,0,0" VerticalAlignment="Top" Height="49" Width="166" Click="cancelBtn_Click" FontSize="16"/>
 
