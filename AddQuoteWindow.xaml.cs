@@ -41,6 +41,8 @@ namespace MegaDesk_5
 
         private void addQuoteBtn_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
             string FirstName = variableFirstName.Text;
             string LastName = variableLastName.Text;
             int width = Convert.ToInt32(variableWidth.Text);
@@ -49,18 +51,24 @@ namespace MegaDesk_5
             string MaterialSelectedText = variableMaterial.SelectedItem.ToString();
             Desk.SurfaceMaterials MaterialSelected = (Desk.SurfaceMaterials)Enum.Parse(typeof(Desk.SurfaceMaterials), MaterialSelectedText);
             int ShippingDays = int.Parse(variableShipping.SelectedItem.ToString());
+            
+                // Create the newDesk object
+                Desk newDesk1 = new Desk(width, depth, drawerCt, MaterialSelected);
 
-            // Create the newDesk object
-            Desk newDesk1 = new Desk(width, depth, drawerCt, MaterialSelected);
+                //Calculate the deskCost and ShippingCost so we can create the DeskQuote object
+                double deskCost = newDesk1.CalculateDeskCost();
+                double ShippingCost = CalculateShipping(ShippingDays, newDesk1);
 
-            //Calculate the deskCost and ShippingCost so we can create the DeskQuote object
-            double deskCost = newDesk1.CalculateDeskCost();
-            double ShippingCost = CalculateShipping(ShippingDays, newDesk1);
+                // Create the DeskQuote object
+                DeskQuote newDeskQuote1 = new DeskQuote(FirstName, LastName, deskCost, ShippingDays, ShippingCost, newDesk1);
 
-            // Create the DeskQuote object
-            DeskQuote newDeskQuote1 = new DeskQuote(FirstName, LastName, deskCost, ShippingDays, ShippingCost, newDesk1);
-
-            Frame.Navigate(typeof(DisplayQuote), newDeskQuote1);
+                Frame.Navigate(typeof(DisplayQuote), newDeskQuote1);
+            }
+            catch (Exception)
+            {
+                var messageDialog = new MessageDialog("There is an error in your input. Please try again.");
+                messageDialog.ShowAsync();
+            }
         }
 
         //Calculator for shipping Costs
