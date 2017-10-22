@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="MegaDesk_5.ViewQuotes"
+    x:Class="MegaDesk_5.SearchQuotes"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:MegaDesk_5"
@@ -8,12 +8,15 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ScrollViewer Width="Auto" Height="Auto" VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled">
+        <TextBlock HorizontalAlignment="Left" Margin="10,20,0,0" TextWrapping="Wrap" Text="Search by material:" VerticalAlignment="Top" Height="39" Width="239" RenderTransformOrigin="0.8,0.813" FontSize="24"/>
+        <ComboBox x:Name="variableMaterial" HorizontalAlignment="Left" Margin="249,20,0,0" VerticalAlignment="Top" Height="39" Width="180" FontSize="20"/>
+        <ScrollViewer Width="Auto" VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled" Margin="0,80,0,10">
             <RichTextBlock x:Name="ViewAQuotes" HorizontalAlignment="Left" Height="2000" Margin="10,10,0,0" VerticalAlignment="Top" Width="1004">
                 <Paragraph>
                     <Run Text=""/>
                 </Paragraph>
             </RichTextBlock>
         </ScrollViewer>
+        <Button Content="Search" HorizontalAlignment="Left" Margin="456,23,0,0" VerticalAlignment="Top" Click="Button_Click"/>
     </Grid>
 </Page>

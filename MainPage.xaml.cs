@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -25,12 +26,26 @@ namespace MegaDesk_5
         public MainPage()
         {
             this.InitializeComponent();
-
         }
 
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(AddQuoteWindow));
+        }
+
+        private void viewBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ViewQuotes));
+        }
+
+        private void searchBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(SearchQuotes));
+        }
+
+        private void exitBtn_Click(object sender, RoutedEventArgs e)
+        {
+            CoreApplication.Exit();
         }
     }
 }

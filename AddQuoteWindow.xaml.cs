@@ -163,44 +163,57 @@ namespace MegaDesk_5
             }
         }
 
+        
+        
         private void variableDepth_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (validated)
+            try
             {
-                int depth = 0;
-                depth = Convert.ToInt32(variableDepth.Text);
-                if (!(depth > 11 && depth < 49))
+
+                if (validated)
                 {
-                    var messageDialog = new MessageDialog("Please enter a number between 12 and 48");
-                    messageDialog.ShowAsync();
-                    variableDepth.Background = new SolidColorBrush(Windows.UI.Colors.Red);
-                    variableDepth.Text = "";
-                }
-                else
-                {
-                    variableDepth.Background = new SolidColorBrush(Windows.UI.Colors.Transparent);
+                    int depth = 0;
+                    depth = Convert.ToInt32(variableDepth.Text);
+                    if (!(depth > 11 && depth < 49))
+                    {
+                        var messageDialog = new MessageDialog("Please enter a number between 12 and 48");
+                        messageDialog.ShowAsync();
+                        variableDepth.Background = new SolidColorBrush(Windows.UI.Colors.Red);
+                        variableDepth.Text = "";
+                    }
+                    else
+                    {
+                        variableDepth.Background = new SolidColorBrush(Windows.UI.Colors.Transparent);
+                    }
                 }
             }
+            catch (Exception)
+            {}
         }
 
         private void variableWidth_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (validated)
+            try
             {
-                int width = 0;
-                width = Convert.ToInt32(variableWidth.Text);
-                if (!(width > 23 && width < 97))
+                if (validated)
                 {
-                    var messageDialog = new MessageDialog("Please enter a number between 24 and 96");
-                    messageDialog.ShowAsync();
-                    variableWidth.Background = new SolidColorBrush(Windows.UI.Colors.Red);
-                    variableWidth.Text = "";
-                }
-                else
-                {
-                    variableWidth.Background = new SolidColorBrush(Windows.UI.Colors.Transparent);
+                    int width = 0;
+                    width = Convert.ToInt32(variableWidth.Text);
+                    if (!(width > 23 && width < 97))
+                    {
+                        var messageDialog = new MessageDialog("Please enter a number between 24 and 96");
+                        messageDialog.ShowAsync();
+                        variableWidth.Background = new SolidColorBrush(Windows.UI.Colors.Red);
+                        variableWidth.Text = "";
+                    }
+                    else
+                    {
+                        variableWidth.Background = new SolidColorBrush(Windows.UI.Colors.Transparent);
+                    }
                 }
             }
+            catch (Exception)
+            {}
         }
     }
 }
